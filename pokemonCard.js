@@ -12,7 +12,6 @@ template.innerHTML = `
         justify-content: center;
         width: 290px;
         height: 400px;
-        background-color: transparent;
         border-radius: 10px;
         box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
         margin-bottom: 250px;
@@ -28,7 +27,17 @@ template.innerHTML = `
         justify-content: center;
         border-radius: 10px;
         box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
-        background-color: transparent;
+
+    }
+
+    .pokemon-name{
+      font-size: 1.5rem;
+      font-weight: bold;
+      text-align: center;
+      margin: 1.5rem;
+      color: #fff;
+      shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+      text-shadow: 0 0 10px #000;
     }
 
     .pokemon-power{
@@ -55,6 +64,14 @@ template.innerHTML = `
         font-size: 1rem;
         text-align: center;
         align-items: center;
+        background-color: ;
+        shadow-color: black;
+        shadow-offset: 0px 0px;
+        shadow-opacity: 0.5;
+        shadow-radius: 10px;
+        border-radius: 10px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+        margin: 10px; 
     }
 
 </style>
@@ -125,11 +142,9 @@ class PokemonCard extends HTMLElement {
        `;
       this.shadowRoot.querySelector(
         ".hp"
-      ).innerHTML = `${data.stats[0].base_stat}
+      ).innerHTML = `HP ${data.stats[0].base_stat}
        `;
-      this.shadowRoot.querySelector(
-        ".pokemon-button"
-      ).innerHTML = `Generate Random`;
+      this.shadowRoot.querySelector(".pokemon-button").innerHTML = `Generate`;
     } catch {
       console.error("Error fetching data");
     }
