@@ -60,18 +60,13 @@ template.innerHTML = `
     }
 
     .pokemon-button{
-        height: 25px;
-        font-size: 1rem;
-        text-align: center;
-        align-items: center;
-        background-color: ;
-        shadow-color: black;
-        shadow-offset: 0px 0px;
-        shadow-opacity: 0.5;
-        shadow-radius: 10px;
-        border-radius: 10px;
-        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
-        margin: 10px; 
+      background: none;
+      color: inherit;
+      border: none;
+      padding: 0;
+      font: inherit;
+      cursor: pointer;
+      outline: inherit;
     }
 
 </style>
@@ -144,7 +139,8 @@ class PokemonCard extends HTMLElement {
         ".hp"
       ).innerHTML = `HP ${data.stats[0].base_stat}
        `;
-      this.shadowRoot.querySelector(".pokemon-button").innerHTML = `Generate`;
+      this.shadowRoot.querySelector(".pokemon-button").innerHTML =
+        "Click to Generate";
     } catch {
       console.error("Error fetching data");
     }
@@ -152,9 +148,12 @@ class PokemonCard extends HTMLElement {
 
   connectedCallback() {
     this.pokemonData();
-    this.addEventListener("click", () => {
-      this.pokemonData();
-    });
+    this.shadowRoot
+      .querySelector(".pokemon-button")
+      .addEventListener("click", () => {
+        console.log("clicked");
+        this.pokemonData();
+      });
   }
 }
 
