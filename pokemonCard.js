@@ -1,4 +1,4 @@
-// Make new template elements for the pokemon card
+// Make new template elements for the Pokemon card
 const template = document.createElement("template");
 // Log the template and its methods
 // console.log("My template is: ", template);
